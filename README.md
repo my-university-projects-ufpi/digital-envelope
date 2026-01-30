@@ -62,6 +62,7 @@ Instale a dependência
 pip install pycryptodome
 ```
 ## 📁 Estrutura do Projeto
+```bash
 digital-envelope/
  ├── alice_sender/
  │   └── plaintext.txt
@@ -69,7 +70,7 @@ digital-envelope/
  ├── creation_of_asymmetric_keys.py
  ├── digital_envelope_creation.py
  └── open_digital_envelope.py
-
+```
 ##📌 Orientações de Desenvolvimento
 Cada diretório representa o ambiente da Alice (remetente) e do Bob (destinatário).
 O script creation_of_asymmetric_keys.py gera novas chaves assimétricas.
