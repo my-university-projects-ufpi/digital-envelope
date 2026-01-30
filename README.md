@@ -71,7 +71,7 @@ digital-envelope/
  ├── digital_envelope_creation.py
  └── open_digital_envelope.py
 ```
-##📌 Orientações de Desenvolvimento
+## 📌 Orientações de Desenvolvimento
 Cada diretório representa o ambiente da Alice (remetente) e do Bob (destinatário).
 O script creation_of_asymmetric_keys.py gera novas chaves assimétricas.
 Ao executá-lo, as chaves antigas são substituídas.
