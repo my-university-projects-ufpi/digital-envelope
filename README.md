@@ -1,68 +1,117 @@
+# 🔐 Digital Envelope — Criptografia em Python
 
-# Digital envelope
+Este projeto consiste em uma implementação de um **Envelope Digital** em Python, utilizando a biblioteca **PyCryptodome**, com o objetivo de garantir a **confidencialidade** e a **integridade** de dados transmitidos eletronicamente.
 
-Esta é uma implementação de um envelope digital em Python utilizando a biblioteca pycryptodome que é uma solução poderosa e segura para garantir a integridade e a confidencialidade de dados transmitidos eletronicamente. Um envelope digital é uma técnica criptográfica que combina criptografia simétrica e criptografia assimétrica para proteger informações sensíveis durante a transmissão.
+Um envelope digital é uma técnica criptográfica que combina **criptografia simétrica** e **criptografia assimétrica**, permitindo proteger informações sensíveis durante a comunicação.
 
-O pycryptodome é uma biblioteca popular e robusta em Python que oferece uma ampla gama de funcionalidades criptográficas, incluindo algoritmos de criptografia simétrica e assimétrica, assinaturas digitais, hashes e muito mais. Com essa biblioteca, é possível implementar facilmente um envelope digital eficiente e seguro.
+---
 
+## 📌 Sobre o Projeto
 
-## Referência
+O sistema simula a comunicação segura entre dois usuários:
 
- - [pycryptodome](https://pycryptodome.readthedocs.io/en/latest/)
-## Aprendizados
+- **Alice (Remetente)**
+- **Bob (Destinatário)**
 
-Com esse projeto projeto consegui assimilar melhor conceitos abstratos visto em sala de aula, compreendi como funciona a implementação de criptografia de dados, além de praticar o uso da biblioteca.
+A mensagem é criptografada com um algoritmo simétrico, e a chave utilizada é protegida com criptografia assimétrica, formando o envelope digital.
 
+O projeto foi desenvolvido com fins educacionais, visando a aplicação prática de conceitos estudados em sala de aula.
 
-## Instalação
+---
 
-Clone o projeto
+## 🛠️ Tecnologias Utilizadas
+
+- Linguagem: Python
+- Biblioteca: PyCryptodome
+- Criptografia:
+  - Simétrica (ex: AES)
+  - Assimétrica (RSA)
+- Codificação: Base64
+
+---
+
+## 📚 Referência
+
+- [PyCryptodome — Documentação Oficial](https://pycryptodome.readthedocs.io/en/latest/)
+
+---
+
+## 📖 Aprendizados
+
+Com este projeto, foi possível:
+
+- Compreender o funcionamento do envelope digital
+- Aplicar criptografia simétrica e assimétrica
+- Implementar geração de chaves
+- Trabalhar com arquivos criptografados
+- Praticar segurança da informação em aplicações reais
+
+Além disso, o projeto contribuiu para a consolidação de conceitos abstratos estudados na disciplina.
+
+---
+
+## ⚙️ Instalação
+
+### Clone o repositório
 
 ```bash
-  git clone https://github.com/V1ntag3/digital-envelope.git
+git clone https://github.com/V1ntag3/digital-envelope.git
+Acesse o diretório
+cd digital-envelope
+Instale a dependência
+pip install pycryptodome
 ```
+## 📁 Estrutura do Projeto
+digital-envelope/
+ ├── alice_sender/
+ │   └── plaintext.txt
+ ├── bob_receiver/
+ ├── creation_of_asymmetric_keys.py
+ ├── digital_envelope_creation.py
+ └── open_digital_envelope.py
 
-Entre no diretório do projeto
-
+##📌 Orientações de Desenvolvimento
+Cada diretório representa o ambiente da Alice (remetente) e do Bob (destinatário).
+O script creation_of_asymmetric_keys.py gera novas chaves assimétricas.
+Ao executá-lo, as chaves antigas são substituídas.
+Será necessário gerar novamente o envelope.
+O texto em claro pode ser editado em:
 ```bash
-  cd digital-envelope
+alice_sender/plaintext.txt
 ```
+Os caminhos dos arquivos podem ser alterados via menu.
+As entradas são feitas pelo teclado no console.
+Basta digitar a abreviação do algoritmo (ex: aes).
 
-Instale a biblioteca
-
+## ▶️ Tutorial de Execução
+### 1️⃣ Gerar Chaves (Opcional)
 ```bash
-  pip install pycryptodome
+python creation_of_asymmetric_keys.py
 ```
+### 2️⃣ Criar Envelope Digital
+```bash
+python digital_envelope_creation.py
+```
+Informe:
+- Caminho do texto em claro
+- Caminho da chave pública
+- Algoritmo (ex: aes)
 
+## 3️⃣ Abrir Envelope Digital
+```bash
+python open_digital_envelope.py
+```
+Informe:
+- Caminho da mensagem criptografada
+- Caminho da chave criptografada
+- Caminho da chave privada
+- Algoritmo utilizado
 
-## Tutorial
+## 🔒 Funcionamento
+- A mensagem é criptografada
+- A chave é protegida com RSA
+- Ambos são enviados juntos
 
-#### Opções de desenvolvimento:
-- cada pasta representa a visão da Alice(remente) e Bob(destinatário).
-- ao rodar o "creation_of_asymmetric_keys.py" são criadas novas keys, substituindo as antigas, logo será necessário encriptar novamente a mensagem.
-- a mensagem / texto em claro esta disponível para ser vizualizado e modificado na pasta "alice_sender" e está com o nome de "plaintext.txt".
-- é possivel mudar o caminho como é mostrado do menu mas caso não queira está tudo definido por padrão para testes.
-- as entradas são feitas por teclado no console basta digitar a abreviação do algoritmo. 
+O destinatário recupera a chave
 
-#### Ordem de execução:
-- "creation_of_asymmetric_keys.py" - cria as chaves assimetricas - Opicional.
-- "digital_envelope_creation.py" - cria o envelope digital.
-    - digitar o caminho do texto em claro Ex: "testes/texto.txt".
-    - digitar o caminho da chave pública do destinatário Ex: "testes/chave_publica.pem".
-    - digitar o algoritmo a ser utilizado Ex: "aes" ou "AES".
-- "open_digital_envelope.py" - abre o envelope e mostra a mensagem.
-    - digitar o caminho onde esta a mensagem encriptada Ex: "testes/texto_enc.base64".
-    - digitar o caminho da chave encriptada Ex: "testes/chave_enc.base64".
-    - digitar o caminho onde esta a chave privada do destinatário Ex: "testes/.chave_privada.pem"
-    - digitar o algoritmo a ser utilizado Ex: "aes" ou "AES".
-## Licença
-
-MIT License
-
-Copyright (c) 2023 Marcos Vinícius Ribeiro Alencar
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+A mensagem é descriptografada
